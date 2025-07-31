@@ -6,28 +6,28 @@
 
 ## FIX CODE
 ```c++
-#include <stdio.h>
+#include<stdio.h>
 
 int main() {
     int N;
-    printf("กรุณาใส่ตัวเลข N: ");
-    scanf("%d", &N);
+    char oddMsg[] = "เลขคี่จาก 1 ถึง %d:\n";
+    char evenMsg[] = "เลขคู่จาก %d ถึง 0:\n";
 
-    if (N % 2 == 1){
-      //กรณีเลขคี่: แสดงเลขคี่จาก 1 ถึง N
-      printf("เลขคี่จาก 1 ถึง %d:\n", N);
-      for (int i = 1; i <= N; i+= 2){
-        printf("%d ", i);
-      }
-      
+    printf("Enter a Number: ");
+    scanf("%d", &N);
+    printf("Multiplication table of %d\n", N);
+
+    if (N % 2 == 1) {
+        printf(oddMsg, N); // ใช้ %s แบบเป็น format string
+        for (int i = 1; i <= N; i += 2) {
+            printf("%d ", i);
+        }
     } else {
-        // กรณีเลขคู่: แสดงเลขคู่จาก N ถึง 0
-        printf("เลขคู่จาก %d ถึง 0:\n", N);
-        for (int i = N; i >= 0; i -= 2){
-            printf("%d", i);
+        printf(evenMsg, N);
+        for (int i = N; i >= 0; i -= 2) {
+            printf("%d ", i);
         }
     }
-    
     printf("\n");
     return 0;
 }
